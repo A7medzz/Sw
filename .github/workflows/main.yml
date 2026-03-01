@@ -1,0 +1,14 @@
+name: Sequential Jobs
+on:
+  push:
+    branches: [ main ]
+jobs:
+  task1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "First task done"
+  task2:
+    needs: task1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Second task after success"
